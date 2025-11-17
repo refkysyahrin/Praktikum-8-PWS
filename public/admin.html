@@ -16,7 +16,7 @@
   <body>
     <div id="authSection" class="card">
       <h1>Admin Auth</h1>
-      <p class="subtitle">Silakan register atau login untuk mengelola user.</p>
+      <p class="subtitle">Silakan register atau login untuk melihat data.</p>
 
       <div class="input-group">
         <div>
@@ -29,10 +29,40 @@
         </div>
       </div>
       <div style="display: flex; gap: 1rem">
-        <button id="registerBtn" class="btn btn-primary">Register</button>
-        <button id="loginBtn" class="btn btn-primary">Login</button>
+        <button id="registerBtn" class="btn btn-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.5 21c-2.305 0-4.47-.612-6.374-1.666z"
+            />
+          </svg>
+          <span>Register</span>
+        </button>
+        <button id="loginBtn" class="btn btn-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+            />
+          </svg>
+          <span>Login</span>
+        </button>
       </div>
-      <p id="authFeedback" class="feedback"></p>
+      <div id="authFeedback" class="alert"></div>
     </div>
 
     <div id="adminPanel" class="card" style="display: none">
@@ -45,7 +75,20 @@
       >
         <h1>Admin Panel</h1>
         <button id="logoutBtn" class="btn btn-danger" style="width: auto">
-          Logout
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l-3-3m0 0l3-3m-3 3H9"
+            />
+          </svg>
+          <span>Logout</span>
         </button>
       </div>
       <p class="subtitle">
@@ -54,58 +97,32 @@
 
       <hr class="separator" />
 
-      <h2>Buat User Baru</h2>
-      <p class="subtitle">
-        Langkah 1: Generate Key. Langkah 2: Isi form dan Create User.
-      </p>
-
-      <div class="input-group">
-        <div>
-          <label for="firstName">Nama Depan</label
-          ><input type="text" id="firstName" placeholder="John" />
-        </div>
-        <div>
-          <label for="lastName">Nama Belakang</label
-          ><input type="text" id="lastName" placeholder="Doe" />
-        </div>
-        <div>
-          <label for="email">Email User</label
-          ><input type="email" id="email" placeholder="john.doe@example.com" />
-        </div>
-        <div>
-          <label for="apiKey">API Key (Klik 'Generate')</label
-          ><input
-            type="text"
-            id="apiKey"
-            placeholder="Klik tombol generate..."
-          />
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 1rem">
-        <button
-          id="generateBtn"
-          class="btn btn-primary"
-          style="background-color: var(--success)"
-        >
-          1. Generate Key
-        </button>
-        <button id="createBtn" class="btn btn-primary">2. Create User</button>
-      </div>
-      <p id="createFeedback" class="feedback"></p>
-
-      <hr class="separator" />
-
-      <h2>List User</h2>
+      <h2>List API Keys</h2>
       <button id="listBtn" class="btn btn-primary" style="margin-bottom: 1rem">
-        Tampilkan List User
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+          />
+        </svg>
+        <span>Tampilkan List API Keys</span>
       </button>
+
+      <div id="listFeedback" class="alert"></div>
+
       <div class="user-table-container">
         <table class="user-table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Email</th>
+              <th>Key ID</th>
+              <th>Pemilik (Email)</th>
               <th>API Key</th>
               <th>Status</th>
             </tr>
@@ -115,48 +132,53 @@
       </div>
     </div>
 
-    <footer>Copyright DP</footer>
+    <footer>© 2025 PWS RefkySyahrin</footer>
 
     <script>
       let jwtToken = null;
 
-      // --- 1. Pemilih Elemen DOM (Hanya Admin) ---
+      // --- 1. Pemilih Elemen DOM ---
       const authSection = document.getElementById("authSection");
       const adminPanel = document.getElementById("adminPanel");
 
       const registerBtn = document.getElementById("registerBtn");
       const loginBtn = document.getElementById("loginBtn");
       const logoutBtn = document.getElementById("logoutBtn");
-      const generateBtn = document.getElementById("generateBtn");
-      const createBtn = document.getElementById("createBtn");
       const listBtn = document.getElementById("listBtn");
 
       const adminEmailInput = document.getElementById("adminEmail");
       const adminPasswordInput = document.getElementById("adminPassword");
       const loggedInEmail = document.getElementById("loggedInEmail");
 
-      const firstNameInput = document.getElementById("firstName");
-      const lastNameInput = document.getElementById("lastName");
-      const emailInput = document.getElementById("email");
-      const apiKeyInput = document.getElementById("apiKey");
-
       const authFeedback = document.getElementById("authFeedback");
-      const createFeedback = document.getElementById("createFeedback");
+      const listFeedback = document.getElementById("listFeedback");
       const userListBody = document.getElementById("userListBody");
 
       // --- 2. Fungsi Tampilan (UI) ---
+
+      /** BARU: Fungsi showFeedback yang disempurnakan */
       function showFeedback(element, message, isValid) {
         element.textContent = message;
-        element.classList.remove("valid", "invalid");
-        element.classList.add("visible", isValid ? "valid" : "invalid");
-        setTimeout(() => element.classList.remove("visible"), 3000);
+        // Reset kelas, lalu tambahkan yang sesuai
+        element.className = "alert";
+        element.classList.add(isValid ? "alert-success" : "alert-error");
+        element.style.display = "block"; // Tampilkan alert box
+
+        setTimeout(() => {
+          element.style.display = "none"; // Sembunyikan setelah 3 detik
+        }, 3000);
       }
+
+      /** Menampilkan panel admin setelah login sukses */
       function showAdminPanel(email, token) {
         jwtToken = token;
         loggedInEmail.textContent = email;
         authSection.style.display = "none";
         adminPanel.style.display = "block";
+        listKeys(); // Otomatis muat daftar key
       }
+
+      /** Menampilkan panel login (saat logout) */
       function showLoginPanel() {
         jwtToken = null;
         loggedInEmail.textContent = "";
@@ -167,123 +189,110 @@
       }
 
       // --- 3. Fungsi Logika (Fetch API Admin) ---
+
+      /** REGISTER ADMIN: Ditambah status Loading */
       async function registerAdmin() {
-        const email = adminEmailInput.value;
-        const password = adminPasswordInput.value;
+        const registerBtnSpan = registerBtn.querySelector("span");
+        registerBtn.disabled = true;
+        registerBtnSpan.textContent = "Registering...";
+
         try {
           const res = await fetch("/auth/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({
+              email: adminEmailInput.value,
+              password: adminPasswordInput.value,
+            }),
           });
           const data = await res.json();
           showFeedback(authFeedback, data.message || data.error, res.ok);
         } catch (err) {
           showFeedback(authFeedback, "Error jaringan.", false);
+        } finally {
+          registerBtn.disabled = false;
+          registerBtnSpan.textContent = "Register";
         }
       }
 
+      /** LOGIN ADMIN: Ditambah status Loading */
       async function loginAdmin() {
-        const email = adminEmailInput.value;
-        const password = adminPasswordInput.value;
+        const loginBtnSpan = loginBtn.querySelector("span");
+        loginBtn.disabled = true;
+        loginBtnSpan.textContent = "Logging In...";
+
         try {
           const res = await fetch("/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({
+              email: adminEmailInput.value,
+              password: adminPasswordInput.value,
+            }),
           });
           const data = await res.json();
           if (res.ok) {
-            showAdminPanel(email, data.token);
+            showAdminPanel(adminEmailInput.value, data.token);
           } else {
             showFeedback(authFeedback, data.error, false);
           }
         } catch (err) {
           showFeedback(authFeedback, "Error jaringan.", false);
+        } finally {
+          loginBtn.disabled = false;
+          loginBtnSpan.textContent = "Login";
         }
       }
 
-      async function generateKey() {
-        try {
-          const res = await fetch("/generate_key");
-          const data = await res.json();
-          if (res.ok) {
-            apiKeyInput.value = data.apiKey;
-            showFeedback(createFeedback, "Key berhasil digenerate!", true);
-          }
-        } catch (err) {
-          showFeedback(createFeedback, "Gagal generate key", false);
-        }
-      }
+      /** LIST KEYS: Ditambah status Loading */
+      async function listKeys() {
+        const listBtnSpan = listBtn.querySelector("span");
+        listBtn.disabled = true;
+        listBtnSpan.textContent = "Memuat...";
 
-      async function createUser() {
-        const body = {
-          firstName: firstNameInput.value,
-          lastName: lastNameInput.value,
-          email: emailInput.value,
-          apiKey: apiKeyInput.value,
-        };
-        if (!body.firstName || !body.lastName || !body.email || !body.apiKey) {
-          showFeedback(createFeedback, "Semua field harus diisi!", false);
-          return;
-        }
         try {
-          const res = await fetch("/users", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${jwtToken}`,
-            },
-            body: JSON.stringify(body),
-          });
-          const data = await res.json();
-          showFeedback(createFeedback, data.message || data.error, res.ok);
-          if (res.ok) {
-            firstNameInput.value = "";
-            lastNameInput.value = "";
-            emailInput.value = "";
-            apiKeyInput.value = "";
-            listUsers(); // Refresh daftar user
-          }
-        } catch (err) {
-          showFeedback(createFeedback, "Error jaringan.", false);
-        }
-      }
-
-      async function listUsers() {
-        try {
-          const res = await fetch("/users", {
+          const res = await fetch("/apikeys", {
             headers: { Authorization: `Bearer ${jwtToken}` },
           });
-          const users = await res.json();
+          const keys = await res.json();
+
           if (!res.ok) {
-            showFeedback(createFeedback, users.error, false);
-            if (res.status === 401 || res.status === 403) showLoginPanel();
+            showFeedback(listFeedback, keys.error, false);
+            if (res.status === 401 || res.status === 403) {
+              showLoginPanel();
+            }
             return;
           }
+
           userListBody.innerHTML = "";
-          if (users.length === 0) {
+          if (keys.length === 0) {
             userListBody.innerHTML =
-              '<tr><td colspan="4">Belum ada user.</td></tr>';
+              '<tr><td colspan="4">Belum ada API Key.</td></tr>';
           }
-          users.forEach((user) => {
+
+          keys.forEach((key) => {
             userListBody.innerHTML += `
-                        <tr><td>${user.id}</td><td>${user.email}</td>
-                         <td>${user.api_key}</td><td>${user.status}</td></tr>
+                        <tr>
+                            <td>${key.id}</td>
+                            <td>${key.owner_email}</td>
+                            <td>${key.key_value}</td>
+                            <td>${key.status}</td>
+                        </tr>
                     `;
           });
         } catch (err) {
-          showFeedback(createFeedback, "Error jaringan.", false);
+          showFeedback(listFeedback, "Error jaringan.", false);
+        } finally {
+          listBtn.disabled = false;
+          listBtnSpan.textContent = "Tampilkan List API Keys";
         }
       }
 
-      // --- 4. Event Listeners (Admin) ---
+      // --- 4. Event Listeners ---
       registerBtn.addEventListener("click", registerAdmin);
       loginBtn.addEventListener("click", loginAdmin);
       logoutBtn.addEventListener("click", showLoginPanel);
-      generateBtn.addEventListener("click", generateKey);
-      createBtn.addEventListener("click", createUser);
-      listBtn.addEventListener("click", listUsers);
+      listBtn.addEventListener("click", listKeys);
     </script>
   </body>
 </html>
